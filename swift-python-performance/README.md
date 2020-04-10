@@ -13,7 +13,7 @@ getting the time down to 1 microsecond.
 
 I don't have Swift installed on this machine, so we'll just
 use Python3 and Python2 to get some base times for
-[test.py](///test.py)  
+[test.py](https://github.com/chrisheller/experiments/blob/master/swift-python-performance/testme.py)  
 
 Running `python3 testme.py` gives results like
 
@@ -61,7 +61,7 @@ which is a bit faster than the numbers we are getting here.
 
 ## Nim - Take 1
 
-Doing the bare minimum to convert this to Nim gives us [testme1.nim](///testme1.nim)
+Doing the bare minimum to convert this to Nim gives us [testme1.nim](https://github.com/chrisheller/experiments/blob/master/swift-python-performance/testme1.nim)
 
 Run this with `nim c -r testme1.nim`. On my laptop this gives results like
 
@@ -117,7 +117,7 @@ Much faster, but slightly harder to read the output for comparison.
 
 ## Nim - Take 3
 
-In [testme3.nim](///testme3.nim) we take a bit more control over the formatting of the output.
+In [testme3.nim](https://github.com/chrisheller/experiments/blob/master/swift-python-performance/testme3.nim) we take a bit more control over the formatting of the output.
 
 Run this with `nim c -d:release -r testme3.nim`.
 
@@ -143,7 +143,7 @@ This is about 15% of the time of the original Python code.
 
 ## Nim - Take 4
 
-In [testme4.nim](///testme4.nim) we set the capacity of the
+In [testme4.nim](https://github.com/chrisheller/experiments/blob/master/swift-python-performance/testme4.nim) we set the capacity of the
 sequence that we are using instead of having it grow dynamically.
 
 Run this with `nim c -d:release -r testme4.nim`.
@@ -170,7 +170,7 @@ This is now close to 10% of the time of the original Python code.
 
 ## Nim - Take 5
 
-In [testme5.nim](///testme5.nim) we switch from using a sequence
+In [testme5.nim](https://github.com/chrisheller/experiments/blob/master/swift-python-performance/testme5.nim) we switch from using a sequence
 to using an array with the correct size and sticking the values
 into the correct slots in the array.
 
@@ -198,7 +198,7 @@ Now we are down to around 5 microseconds after the first loop.
 
 ## Nim - Take 6
 
-For [testme6.nim](///testme6.nim) we put the main logic into a
+For [testme6.nim](https://github.com/chrisheller/experiments/blob/master/swift-python-performance/testme6.nim) we put the main logic into a
 `proc` instead of having global/module level code. Nim is able
 to perform additional optimizations on code that is not global.
 
@@ -254,7 +254,7 @@ Now we are down to between 1 and 2 microseconds after the first loop.
 
 ## Nim - Take 8
 
-Our [last change](///testme6.nim) is one that I should have realized
+Our [last change](https://github.com/chrisheller/experiments/blob/master/swift-python-performance/testme8.nim) is one that I should have realized
 earlier. We change from using `foldl` from the `sequtils` module to add
 up the values to using the `sum` proc from the `math` module.
 
