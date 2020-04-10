@@ -2,8 +2,12 @@
 
 This is from [this blog post](https://tryolabs.com/blog/2020/04/02/swift-googles-bet-on-differentiable-programming/) which takes some
 Python and converts it to Swift. It actually goes into a lot more
-detail about some cool stuff in Swift, but this is just to convert
-one of the examples into Nim.
+detail about some cool stuff in Swift, but this writeup is just to
+convert one of the examples into Nim.
+
+This goes from the original Python code running around 400 microseconds
+per outer loop and then steps through converting the code to Nim and
+getting the time down to 1 microsecond.
 
 ## Python
 
@@ -247,3 +251,35 @@ Run this with `nim c -d:danger -r testme7.nim`.
 ```
 
 Now we are down to between 1 and 2 microseconds after the first loop.
+
+## Nim - Take 8
+
+Our [last change](///testme6.nim) is one that I should have realized
+earlier. We change from using `foldl` from the `sequtils` module to add
+up the values to using the `sum` proc from the `math` module.
+
+The original Python code uses the Python `sum` function, but the Swift
+code was using `reduce` which must have been what I was looking at when
+I decided to use `foldl`.
+
+Run this with `nim c -d:danger -r testme8.nim`.
+
+```
+("0.0000010", 0)
+("0.0000010", 3000)
+("0.0000010", 6000)
+("0.0000012", 9000)
+("0.0000010", 12000)
+("0.0000012", 15000)
+("0.0000010", 18000)
+("0.0000012", 21000)
+("0.0000010", 24000)
+("0.0000012", 27000)
+("0.0000010", 30000)
+("0.0000010", 33000)
+("0.0000010", 36000)
+("0.0000010", 39000)
+("0.0000010", 42000)
+```
+
+Now we are consistently at 1 microsecond including the first loop. Nice!
