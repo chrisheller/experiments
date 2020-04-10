@@ -80,3 +80,31 @@ Run this with `nim c -r testme1.nim`. On my laptop this gives results like
 ```
 
 This is about 80% of the time of the original Python code.
+
+## Nim - Take 2
+
+The first take wasn't that much faster than Python because
+the code was being compiled in debug mode. Compiling with
+release mode will give us much better results.
+
+Run this with `nim c -d:release -r testme2.nim`.
+
+```
+(8.797645568847656e-05, 0)
+(6.413459777832031e-05, 3000)
+(9.393692016601562e-05, 6000)
+(6.580352783203125e-05, 9000)
+(6.103515625e-05, 12000)
+(6.198883056640625e-05, 15000)
+(6.794929504394531e-05, 18000)
+(6.413459777832031e-05, 21000)
+(6.389617919921875e-05, 24000)
+(6.508827209472656e-05, 27000)
+(6.794929504394531e-05, 30000)
+(7.605552673339844e-05, 33000)
+(0.0001070499420166016, 36000)
+(7.486343383789062e-05, 39000)
+(6.580352783203125e-05, 42000)
+```
+
+Much faster, but slightly harder to read the output for comparison.
