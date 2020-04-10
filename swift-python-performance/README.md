@@ -136,3 +136,30 @@ Run this with `nim c -d:release -r testme3.nim`.
 ```
 
 This is about 15% of the time of the original Python code.
+
+## Nim - Take 4
+
+In [testme4.nim](///testme4.nim) we set the capacity of the
+sequence that we are using instead of having it grow dynamically.
+
+Run this with `nim c -d:release -r testme4.nim`.
+
+```
+("0.0000420", 0)
+("0.0000372", 3000)
+("0.0000319", 6000)
+("0.0000348", 9000)
+("0.0000360", 12000)
+("0.0000429", 15000)
+("0.0000470", 18000)
+("0.0000482", 21000)
+("0.0000479", 24000)
+("0.0000520", 27000)
+("0.0000451", 30000)
+("0.0000641", 33000)
+("0.0000482", 36000)
+("0.0000479", 39000)
+("0.0000579", 42000)
+```
+
+This is now close to 10% of the time of the original Python code.
