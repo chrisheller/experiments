@@ -191,3 +191,31 @@ Run this with `nim c -d:release -r testme5.nim`.
 ```
 
 Now we are down to around 5 microseconds after the first loop.
+
+## Nim - Take 6
+
+For [testme6.nim](///testme6.nim) we put the main logic into a
+`proc` instead of having global/module level code. Nim is able
+to perform additional optimizations on code that is not global.
+
+Run this with `nim c -d:release -r testme6.nim`.
+
+```
+("0.0000160", 0)
+("0.0000031", 3000)
+("0.0000021", 6000)
+("0.0000031", 9000)
+("0.0000019", 12000)
+("0.0000019", 15000)
+("0.0000019", 18000)
+("0.0000021", 21000)
+("0.0000021", 24000)
+("0.0000019", 27000)
+("0.0000019", 30000)
+("0.0000021", 33000)
+("0.0000021", 36000)
+("0.0000019", 39000)
+("0.0000019", 42000)
+```
+
+Now we are down to around 2 microseconds after the first loop.
