@@ -163,3 +163,31 @@ Run this with `nim c -d:release -r testme4.nim`.
 ```
 
 This is now close to 10% of the time of the original Python code.
+
+## Nim - Take 5
+
+In [testme5.nim](///testme5.nim) we switch from using a sequence
+to using an array with the correct size and sticking the values
+into the correct slots in the array.
+
+Run this with `nim c -d:release -r testme5.nim`.
+
+```
+("0.0000279", 0)
+("0.0000060", 3000)
+("0.0000050", 6000)
+("0.0000050", 9000)
+("0.0000062", 12000)
+("0.0000050", 15000)
+("0.0000060", 18000)
+("0.0000050", 21000)
+("0.0000050", 24000)
+("0.0000050", 27000)
+("0.0000050", 30000)
+("0.0000050", 33000)
+("0.0000050", 36000)
+("0.0000050", 39000)
+("0.0000062", 42000)
+```
+
+Now we are down to around 5 microseconds after the first loop.
