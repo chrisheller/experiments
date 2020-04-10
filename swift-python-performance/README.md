@@ -219,3 +219,31 @@ Run this with `nim c -d:release -r testme6.nim`.
 ```
 
 Now we are down to around 2 microseconds after the first loop.
+
+## Nim - Take 7
+
+To squeeze out a bit more performance, we use a different compile
+switch for Nim that turns off more safety checks. This has no code
+changes from take 6, just the compile flag.
+
+Run this with `nim c -d:danger -r testme7.nim`.
+
+```
+("0.0000460", 0)
+("0.0000019", 3000)
+("0.0000012", 6000)
+("0.0000010", 9000)
+("0.0000010", 12000)
+("0.0000010", 15000)
+("0.0000010", 18000)
+("0.0000021", 21000)
+("0.0000019", 24000)
+("0.0000019", 27000)
+("0.0000021", 30000)
+("0.0000019", 33000)
+("0.0000021", 36000)
+("0.0000019", 39000)
+("0.0000021", 42000)
+```
+
+Now we are down to between 1 and 2 microseconds after the first loop.
