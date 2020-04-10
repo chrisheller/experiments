@@ -1,0 +1,56 @@
+# Python/Swift Performance Example in Nim
+
+This is from [this blog post](https://tryolabs.com/blog/2020/04/02/swift-googles-bet-on-differentiable-programming/) which takes some
+Python and converts it to Swift. It actually goes into a lot more
+detail about some cool stuff in Swift, but this is just to convert
+one of the examples into Nim.
+
+## Python
+
+I don't have Swift installed on this machine, so we'll just
+use Python3 and Python2 to get some base times for
+[test.py](///test.py)  
+
+Running `python3 testme.py` gives results like
+
+```
+0.0004899501800537109 0
+0.0004971027374267578 3000
+0.00047898292541503906 6000
+0.0004780292510986328 9000
+0.0004737377166748047 12000
+0.0006122589111328125 15000
+0.00047588348388671875 18000
+0.00047278404235839844 21000
+0.00048089027404785156 24000
+0.0004620552062988281 27000
+0.0004572868347167969 30000
+0.0004642009735107422 33000
+0.0004749298095703125 36000
+0.0004658699035644531 39000
+0.00047898292541503906 42000
+```
+
+Running `python2 testme.py` gives similar results, but with
+a bit more variance.
+
+```
+(0.0005640983581542969, 0)
+(0.0005300045013427734, 3000)
+(0.0005359649658203125, 6000)
+(0.0004429817199707031, 9000)
+(0.0004470348358154297, 12000)
+(0.0004429817199707031, 15000)
+(0.0004398822784423828, 18000)
+(0.00043201446533203125, 21000)
+(0.00036215782165527344, 24000)
+(0.0003619194030761719, 27000)
+(0.0004220008850097656, 30000)
+(0.00051116943359375, 33000)
+(0.0004630088806152344, 36000)
+(0.0004050731658935547, 39000)
+(0.00037598609924316406, 42000)
+```
+
+The blog post says Python was getting about 360 microseconds per loop,
+which is a bit faster than the numbers we are getting here.
