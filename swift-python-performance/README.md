@@ -108,3 +108,31 @@ Run this with `nim c -d:release -r testme2.nim`.
 ```
 
 Much faster, but slightly harder to read the output for comparison.
+
+(note that there were no code changes, just the release flag)
+
+## Nim - Take 3
+
+In [testme3.nim](///testme3.nim) we take a bit more control over the formatting of the output.
+
+Run this with `nim c -d:release -r testme3.nim`.
+
+```
+("0.0000880", 0)
+("0.0000610", 3000)
+("0.0000610", 6000)
+("0.0000651", 9000)
+("0.0000620", 12000)
+("0.0000641", 15000)
+("0.0000591", 18000)
+("0.0000620", 21000)
+("0.0000739", 24000)
+("0.0000601", 27000)
+("0.0000641", 30000)
+("0.0000591", 33000)
+("0.0000610", 36000)
+("0.0000601", 39000)
+("0.0000660", 42000)
+```
+
+This is about 15% of the time of the original Python code.
