@@ -54,3 +54,29 @@ a bit more variance.
 
 The blog post says Python was getting about 360 microseconds per loop,
 which is a bit faster than the numbers we are getting here.
+
+## Nim - Take 1
+
+Doing the bare minimum to convert this to Nim gives us [testme1.nim](///testme1.nim)
+
+Run this with `nim c -r testme1.nim`. On my laptop this gives results like
+
+```
+(0.0003762245178222656, 0)
+(0.0003671646118164062, 3000)
+(0.0004091262817382812, 6000)
+(0.0003590583801269531, 9000)
+(0.0003628730773925781, 12000)
+(0.0003619194030761719, 15000)
+(0.0003750324249267578, 18000)
+(0.0004041194915771484, 21000)
+(0.0004241466522216797, 24000)
+(0.0003650188446044922, 27000)
+(0.0003719329833984375, 30000)
+(0.0003449916839599609, 33000)
+(0.0003769397735595703, 36000)
+(0.0003671646118164062, 39000)
+(0.0003621578216552734, 42000)
+```
+
+This is about 80% of the time of the original Python code.
